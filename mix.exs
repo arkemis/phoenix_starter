@@ -5,7 +5,7 @@ defmodule PhoenixStarter.MixProject do
     [
       app: :phoenix_starter,
       version: "0.2.3",
-      elixir: "~> 1.13",
+      elixir: "~> 1.16",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -33,12 +33,12 @@ defmodule PhoenixStarter.MixProject do
   defp deps do
     List.flatten([
       {:corsica, "~> 1.2"},
-      {:phoenix, "~> 1.6.6"},
+      {:phoenix, "~> 1.7.0"},
+      {:phoenix_view, "~> 2.0"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:hackney, "~> 1.18"},
       {:swoosh, "~> 1.11"},
       arke_deps(Mix.env())
     ])
@@ -73,10 +73,10 @@ defmodule PhoenixStarter.MixProject do
 
   defp arke_package() do
     [
-      {:arke, "~> 0.3.17"},
-      {:arke_postgres, "~> 0.3.7"},
-      {:arke_auth, "~> 0.3.5"},
-      {:arke_server, "~> 0.3.18"},
+      {:arke, "~> 0.8.0"},
+      {:arke_postgres, "~> 0.7.0"},
+      {:arke_auth, "~> 0.6.0"},
+      {:arke_server, "~> 0.7.0"},
     ]
   end
 
@@ -91,7 +91,7 @@ defmodule PhoenixStarter.MixProject do
     [
       setup: ["deps.get"],
       "arke.migrate": ["ecto.migrate -r ArkePostgres.Repo --prefix arke_system"],
-      "arke.init": ["ecto.create -r ArkePostgres.Repo","arke_postgres.create_project --id arke_system --label Arke System Project","ecto.migrate -r ArkePostgres.Repo --prefix arke_system", "arke.seed_project --project arke_system"]
+      "arke.init": ["ecto.create -r ArkePostgres.Repo","arke_postgres.create_project --id arke_system --label Arke System Project", "arke.seed_project --project arke_system"]
     ]
   end
 end

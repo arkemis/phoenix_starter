@@ -71,7 +71,7 @@ config :arke_postgres, ArkePostgres.Repo,
 # Also, you may need to configure the Swoosh API client of your choice if you
 # are not using SMTP. Here is an example of the configuration:
 #
-#     config :phoenix_starter, PhoenixStarter.Mailer,
+#     config :arke_server, PhoenixStarter.Mailer,
 #
 #       adapter: Swoosh.Adapters.Local
 #
@@ -84,7 +84,7 @@ config :arke_postgres, ArkePostgres.Repo,
 # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 
 # Mailer configuration
-config :phoenix_starter, PhoenixStarter.Mailer,
+config :arke_server, PhoenixStarter.Mailer,
   adapter: Swoosh.Adapters.Local
 
 # Guardian configuration

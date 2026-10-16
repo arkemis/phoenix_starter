@@ -1,4 +1,4 @@
-FROM elixir:1.13.3-alpine
+FROM elixir:1.20.4-otp-29-alpine
 
 # install build dependencies
 RUN apk update && \
@@ -8,7 +8,7 @@ RUN apk update && \
 WORKDIR /app
 RUN chown nobody /app
 
-ARG MIX_ENV
+ARG MIX_ENV=dev
 # set build ENV
 ENV MIX_ENV=$MIX_ENV
 

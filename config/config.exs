@@ -17,8 +17,10 @@ config :arke,
   persistence: %{
     arke_postgres: %{
       init: &ArkePostgres.init/0,
+      transaction: &ArkePostgres.transaction/2,
       create: &ArkePostgres.create/2,
       update: &ArkePostgres.update/2,
+      update_key: &ArkePostgres.update_key/2,
       delete: &ArkePostgres.delete/2,
       execute_query: &ArkePostgres.Query.execute/2,
       create_project: &ArkePostgres.create_project/1,
@@ -33,11 +35,13 @@ config :arke_server, ArkeServer.Endpoint, server: false
 
 config :arke_server,:mailer_module, PhoenixStarter.Mailer
 
+# HTTP client for API mail adapters; Req already comes with arke
+config :swoosh, :api_client, Swoosh.ApiClient.Req
+
 # The endpoint module define which servers show in the swagger. You can pass a single one or a list
 config :arke_server, endpoint_module: PhoenixStarterWeb.Endpoint
 
 config :logger,
-       backends: [:console],
        compile_time_purge_matching: [
          [module: Cluster.Logger, level_lower_than: :error]
        ]

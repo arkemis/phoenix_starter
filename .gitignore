@@ -34,3 +34,6 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 
 phoenix_starter-\*.tar
+
+# Seed error logs from mix arke.seed_project
+/log/

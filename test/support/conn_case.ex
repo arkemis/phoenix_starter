@@ -22,8 +22,6 @@ defmodule PhoenixStarterWeb.ConnCase do
       # The default endpoint for testing
       @endpoint PhoenixStarterWeb.Endpoint
 
-      use PhoenixStarterWeb, :verified_routes
-
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
@@ -33,6 +31,6 @@ defmodule PhoenixStarterWeb.ConnCase do
     end
   end
   setup _tags do
-    {:ok, conn:PhoenixStarterWeb.ConnTest.build_conn()}
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
