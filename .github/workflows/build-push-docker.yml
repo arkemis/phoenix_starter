@@ -43,7 +43,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: phoenix_starter
-          tags: ${{ github.event.release.tag_name }}
+          tags: ${{ github.ref_name }}
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
